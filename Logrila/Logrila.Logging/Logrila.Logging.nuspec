@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Logrila.Logging.NLogIntegration</id>
+    <id>Logrila.Logging</id>
     <version>1.0.0.0</version>
-    <title>Logrila.Logging.NLogIntegration</title>
+    <title>Logrila.Logging</title>
     <authors>Dennis Gao</authors>
     <owners>Dennis Gao</owners>
     <licenseUrl>https://github.com/gaochundong/Logrila/blob/master/LICENSE</licenseUrl>
@@ -11,9 +11,5 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Logrila is a simple logging adapter.</description>
     <copyright>Copyright © 2015-2016 Dennis Gao.</copyright>
-    <dependencies>
-	  <dependency id="Logrila.Logging" version="1.0.0" />
-      <dependency id="NLog" version="4.2.3" />
-    </dependencies>
   </metadata>
 </package>
