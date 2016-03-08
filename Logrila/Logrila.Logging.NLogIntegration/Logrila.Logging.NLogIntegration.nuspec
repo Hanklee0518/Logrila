@@ -8,7 +8,7 @@
     <owners>Dennis Gao</owners>
     <licenseUrl>https://github.com/gaochundong/Logrila/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/gaochundong/Logrila</projectUrl>
-    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Logrila is a simple logging adapter.</description>
     <copyright>Copyright © 2015-2016 Dennis Gao.</copyright>
     <dependencies>
