@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Logrila is a simple logging adapter.")]
 [assembly: AssemblyCompany("Dennis Gao")]
 [assembly: AssemblyProduct("Logrila")]
-[assembly: AssemblyCopyright("Copyright © 2015-2016 Dennis Gao.")]
+[assembly: AssemblyCopyright("Copyright © 2015-2016 Dennis Gao")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCulture("")]
