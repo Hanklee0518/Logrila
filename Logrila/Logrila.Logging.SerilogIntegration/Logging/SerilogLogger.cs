@@ -28,7 +28,8 @@ namespace Logrila.Logging.SerilogIntegration
 
         public static void Use(Serilog.ILogger logger)
         {
-            Logrila.Logging.Logger.UseLogger(new SerilogLogger((name) => logger.ForContext("NamedContext", name)));
+            Logrila.Logging.Logger.UseLogger(new SerilogLogger(
+                (name) => logger.ForContext(Serilog.Core.Constants.SourceContextPropertyName, name)));
         }
     }
 }
