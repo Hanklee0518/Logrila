@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Logrila.Logging.NLogIntegration</id>
-    <version>1.0.2.0</version>
+    <version>1.0.3.0</version>
     <title>Logrila.Logging.NLogIntegration</title>
     <authors>Dennis Gao</authors>
     <owners>Dennis Gao</owners>
