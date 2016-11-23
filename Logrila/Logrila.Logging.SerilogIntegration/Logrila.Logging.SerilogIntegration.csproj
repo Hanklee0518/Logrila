@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D614C767-8EAB-4B21-ABBC-13BD49D0257A}</ProjectGuid>
+    <ProjectGuid>{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Logrila.Logging.NLogIntegration</RootNamespace>
-    <AssemblyName>Logrila.Logging.NLogIntegration</AssemblyName>
+    <RootNamespace>Logrila.Logging.SerilogIntegration</RootNamespace>
+    <AssemblyName>Logrila.Logging.SerilogIntegration</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,8 +34,8 @@
       <HintPath>..\packages\Logrila.Logging.1.0.3.0\lib\net46\Logrila.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.3.11\lib\net45\NLog.dll</HintPath>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.3.0\lib\net46\Serilog.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -48,9 +48,10 @@
       <Link>SolutionVersion.cs</Link>
     </Compile>
     <Compile Include="ExceptionRender.cs" />
-    <Compile Include="Logging\NLogLog.cs" />
-    <Compile Include="Logging\NLogLogger.cs" />
-    <Compile Include="Logging\NLogExtensions.cs" />
+    <Compile Include="Logging\SerilogExtensions.cs" />
+    <Compile Include="Logging\SerilogLog.cs" />
+    <Compile Include="Logging\SerilogLogger.cs" />
+    <Compile Include="Logging\SerilogPreformatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

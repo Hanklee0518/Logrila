@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SolutionVersion.cs = SolutionVersion.cs
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging.SerilogIntegration", "Logrila.Logging.SerilogIntegration\Logrila.Logging.SerilogIntegration.csproj", "{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{D614C767-8EAB-4B21-ABBC-13BD49D0257A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D614C767-8EAB-4B21-ABBC-13BD49D0257A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D614C767-8EAB-4B21-ABBC-13BD49D0257A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

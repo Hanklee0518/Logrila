@@ -3,28 +3,28 @@ using NLog;
 
 namespace Logrila.Logging.NLogIntegration
 {
-    public class NLogLogger : ILogger
+    public class NLogLogger : Logrila.Logging.ILogger
     {
-        readonly Func<string, NLog.Logger> _logFactory;
-
-        public NLogLogger(LogFactory factory)
-        {
-            _logFactory = factory.GetLogger;
-        }
+        private readonly Func<string, NLog.Logger> _loggerFactory;
 
         public NLogLogger()
         {
-            _logFactory = NLog.LogManager.GetLogger;
+            _loggerFactory = NLog.LogManager.GetLogger;
+        }
+
+        public NLogLogger(LogFactory logFactory)
+        {
+            _loggerFactory = logFactory.GetLogger;
         }
 
         public ILog Get(string name)
         {
-            return new NLogLog(_logFactory(name), name);
+            return new NLogLog(_loggerFactory(name), name);
         }
 
         public static void Use()
         {
-            Logger.UseLogger(new NLogLogger());
+            Logrila.Logging.Logger.UseLogger(new NLogLogger());
         }
     }
 }
