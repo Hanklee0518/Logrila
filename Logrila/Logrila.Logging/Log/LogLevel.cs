@@ -5,7 +5,7 @@ namespace Logrila.Logging
 {
     public class LogLevel
     {
-        public static readonly LogLevel All = new LogLevel("All", 6, SourceLevels.All, TraceEventType.Verbose);
+        public static readonly LogLevel Trace = new LogLevel("Trace", 6, SourceLevels.All, TraceEventType.Verbose);
         public static readonly LogLevel Debug = new LogLevel("Debug", 5, SourceLevels.Verbose, TraceEventType.Verbose);
         public static readonly LogLevel Info = new LogLevel("Info", 4, SourceLevels.Information, TraceEventType.Information);
         public static readonly LogLevel Warn = new LogLevel("Warn", 3, SourceLevels.Warning, TraceEventType.Warning);
@@ -30,7 +30,7 @@ namespace Logrila.Logging
         {
             get
             {
-                yield return All;
+                yield return Trace;
                 yield return Debug;
                 yield return Info;
                 yield return Warn;
@@ -84,8 +84,8 @@ namespace Logrila.Logging
         {
             switch (level)
             {
-                case ~SourceLevels.Off:
-                    return Debug;
+                case SourceLevels.All:
+                    return Trace;
                 case SourceLevels.Verbose:
                     return Debug;
                 case SourceLevels.Information:

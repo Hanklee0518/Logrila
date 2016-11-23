@@ -15,6 +15,11 @@ namespace Logrila.Logging
             _level = LogLevel.FromSourceLevels(source.Switch.Level);
         }
 
+        public bool IsTraceEnabled
+        {
+            get { return _level >= LogLevel.Trace; }
+        }
+
         public bool IsDebugEnabled
         {
             get { return _level >= LogLevel.Debug; }
@@ -38,6 +43,58 @@ namespace Logrila.Logging
         public bool IsFatalEnabled
         {
             get { return _level >= LogLevel.Fatal; }
+        }
+
+        public void Trace(object message)
+        {
+            if (!IsTraceEnabled)
+                return;
+            Log(LogLevel.Trace, message, null);
+        }
+
+        public void Trace(object message, Exception exception)
+        {
+            if (!IsTraceEnabled)
+                return;
+            Log(LogLevel.Trace, message, exception);
+        }
+
+        public void Trace(LogOutputProvider logOutputProvider)
+        {
+            if (!IsTraceEnabled)
+                return;
+
+            object obj = logOutputProvider();
+
+            LogInternal(LogLevel.Trace, obj, null);
+        }
+
+        public void TraceFormat(string format, params object[] args)
+        {
+            if (!IsTraceEnabled)
+                return;
+            LogInternal(LogLevel.Trace, string.Format(CultureInfo.CurrentCulture, format, args), null);
+        }
+
+        public void TraceFormat(IFormatProvider formatProvider, string format, params object[] args)
+        {
+            if (!IsTraceEnabled)
+                return;
+            LogInternal(LogLevel.Trace, string.Format(formatProvider, format, args), null);
+        }
+
+        public void TraceFormat(Exception exception, string format, params object[] args)
+        {
+            if (!IsTraceEnabled)
+                return;
+            LogInternal(LogLevel.Trace, string.Format(CultureInfo.CurrentCulture, format, args), exception);
+        }
+
+        public void TraceFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
+        {
+            if (!IsTraceEnabled)
+                return;
+            LogInternal(LogLevel.Trace, string.Format(formatProvider, format, args), exception);
         }
 
         public void Debug(object message)

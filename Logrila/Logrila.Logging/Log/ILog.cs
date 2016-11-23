@@ -4,11 +4,18 @@ namespace Logrila.Logging
 {
     public interface ILog
     {
+        bool IsTraceEnabled { get; }
         bool IsDebugEnabled { get; }
         bool IsInfoEnabled { get; }
         bool IsWarnEnabled { get; }
         bool IsErrorEnabled { get; }
         bool IsFatalEnabled { get; }
+
+        void Trace(object obj);
+        void Trace(object obj, Exception exception);
+        void Trace(LogOutputProvider logOutputProvider);
+        void TraceFormat(IFormatProvider formatProvider, string format, params object[] args);
+        void TraceFormat(string format, params object[] args);
 
         void Debug(object obj);
         void Debug(object obj, Exception exception);
