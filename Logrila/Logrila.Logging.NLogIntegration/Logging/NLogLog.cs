@@ -15,6 +15,11 @@ namespace Logrila.Logging.NLogIntegration
             _log = log;
         }
 
+        public bool IsTraceEnabled
+        {
+            get { return _log.IsTraceEnabled; }
+        }
+
         public bool IsDebugEnabled
         {
             get { return _log.IsDebugEnabled; }
@@ -38,6 +43,32 @@ namespace Logrila.Logging.NLogIntegration
         public bool IsFatalEnabled
         {
             get { return _log.IsFatalEnabled; }
+        }
+
+        public void Trace(object obj)
+        {
+            _log.Log(NLog.LogLevel.Trace, obj);
+        }
+
+        public void Trace(object obj, Exception exception)
+        {
+            string message = string.Format("{0}{1}{2}", obj == null ? "" : obj.ToString(), Environment.NewLine, ExceptionRender.Parse(exception));
+            _log.Log(NLog.LogLevel.Trace, exception, message);
+        }
+
+        public void Trace(LogOutputProvider logOutputProvider)
+        {
+            _log.Trace(ToGenerator(logOutputProvider));
+        }
+
+        public void TraceFormat(IFormatProvider formatProvider, string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Trace, formatProvider, format, args);
+        }
+
+        public void TraceFormat(string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Trace, format, args);
         }
 
         public void Debug(object obj)
@@ -199,18 +230,18 @@ namespace Logrila.Logging.NLogIntegration
 
         private NLog.LogLevel GetNLogLevel(TLogLevel level)
         {
-            if (level == TLogLevel.Fatal)
-                return NLog.LogLevel.Fatal;
-            if (level == TLogLevel.Error)
-                return NLog.LogLevel.Error;
-            if (level == TLogLevel.Warn)
-                return NLog.LogLevel.Warn;
-            if (level == TLogLevel.Info)
-                return NLog.LogLevel.Info;
-            if (level == TLogLevel.Debug)
-                return NLog.LogLevel.Debug;
-            if (level == TLogLevel.All)
+            if (level == TLogLevel.Trace)
                 return NLog.LogLevel.Trace;
+            else if (level == TLogLevel.Debug)
+                return NLog.LogLevel.Debug;
+            else if (level == TLogLevel.Info)
+                return NLog.LogLevel.Info;
+            else if (level == TLogLevel.Warn)
+                return NLog.LogLevel.Warn;
+            else if (level == TLogLevel.Error)
+                return NLog.LogLevel.Error;
+            else if (level == TLogLevel.Fatal)
+                return NLog.LogLevel.Fatal;
 
             return NLog.LogLevel.Off;
         }
