@@ -5,7 +5,7 @@ namespace Logrila.Logging
 {
     public static class Logger
     {
-        static ILogger _logger;
+        private static ILogger _logger;
 
         public static ILogger Current
         {
@@ -43,7 +43,7 @@ namespace Logrila.Logging
             return GetCleanTypeName(new StringBuilder(), type, null);
         }
 
-        static string GetCleanTypeName(StringBuilder sb, Type type, string scope)
+        private static string GetCleanTypeName(StringBuilder sb, Type type, string scope)
         {
             if (type.IsGenericParameter)
                 return "";

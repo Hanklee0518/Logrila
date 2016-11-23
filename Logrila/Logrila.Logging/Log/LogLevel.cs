@@ -7,21 +7,18 @@ namespace Logrila.Logging
     {
         public static readonly LogLevel All = new LogLevel("All", 6, SourceLevels.All, TraceEventType.Verbose);
         public static readonly LogLevel Debug = new LogLevel("Debug", 5, SourceLevels.Verbose, TraceEventType.Verbose);
+        public static readonly LogLevel Info = new LogLevel("Info", 4, SourceLevels.Information, TraceEventType.Information);
+        public static readonly LogLevel Warn = new LogLevel("Warn", 3, SourceLevels.Warning, TraceEventType.Warning);
         public static readonly LogLevel Error = new LogLevel("Error", 2, SourceLevels.Error, TraceEventType.Error);
         public static readonly LogLevel Fatal = new LogLevel("Fatal", 1, SourceLevels.Critical, TraceEventType.Critical);
-
-        public static readonly LogLevel Info = new LogLevel("Info", 4, SourceLevels.Information,
-            TraceEventType.Information);
-
         public static readonly LogLevel None = new LogLevel("None", 0, SourceLevels.Off, TraceEventType.Critical);
-        public static readonly LogLevel Warn = new LogLevel("Warn", 3, SourceLevels.Warning, TraceEventType.Warning);
 
-        readonly int _index;
-        readonly string _name;
-        readonly SourceLevels _sourceLevel;
-        readonly TraceEventType _traceEventType;
+        private readonly int _index;
+        private readonly string _name;
+        private readonly SourceLevels _sourceLevel;
+        private readonly TraceEventType _traceEventType;
 
-        LogLevel(string name, int index, SourceLevels sourceLevel, TraceEventType traceEventType)
+        internal LogLevel(string name, int index, SourceLevels sourceLevel, TraceEventType traceEventType)
         {
             _name = name;
             _index = index;
@@ -87,18 +84,18 @@ namespace Logrila.Logging
         {
             switch (level)
             {
-                case SourceLevels.Information:
-                    return Info;
-                case SourceLevels.Verbose:
-                    return Debug;
                 case ~SourceLevels.Off:
                     return Debug;
-                case SourceLevels.Critical:
-                    return Fatal;
-                case SourceLevels.Error:
-                    return Error;
+                case SourceLevels.Verbose:
+                    return Debug;
+                case SourceLevels.Information:
+                    return Info;
                 case SourceLevels.Warning:
                     return Warn;
+                case SourceLevels.Error:
+                    return Error;
+                case SourceLevels.Critical:
+                    return Fatal;
                 default:
                     return None;
             }

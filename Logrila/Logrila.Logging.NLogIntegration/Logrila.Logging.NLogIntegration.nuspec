@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Logrila.Logging.NLogIntegration</id>
-    <version>1.0.1.0</version>
+    <version>1.0.2.0</version>
     <title>Logrila.Logging.NLogIntegration</title>
     <authors>Dennis Gao</authors>
     <owners>Dennis Gao</owners>
@@ -12,7 +12,7 @@
     <description>Logrila is a simple logging adapter.</description>
     <copyright>Copyright © 2015-2016 Dennis Gao.</copyright>
     <dependencies>
-	  <dependency id="Logrila.Logging" version="1.0.0" />
+	  <dependency id="Logrila.Logging" version="1.0.2" />
       <dependency id="NLog" version="4.2.3" />
     </dependencies>
   </metadata>

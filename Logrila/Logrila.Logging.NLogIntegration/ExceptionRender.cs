@@ -50,7 +50,8 @@ namespace Logrila.Logging.NLogIntegration
             foreach (var property in properties)
             {
                 var propertyName = property.Name;
-                var isFiltered = _filteredProperties.Any(filter => String.Equals(propertyName, filter, StringComparison.InvariantCultureIgnoreCase));
+                var isFiltered = _filteredProperties.Any(filter => 
+                    String.Equals(propertyName, filter, StringComparison.InvariantCultureIgnoreCase));
                 if (isFiltered)
                 {
                     continue;

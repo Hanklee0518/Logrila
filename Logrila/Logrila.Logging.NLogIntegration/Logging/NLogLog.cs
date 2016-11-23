@@ -6,7 +6,7 @@ namespace Logrila.Logging.NLogIntegration
 {
     public class NLogLog : ILog
     {
-        readonly NLog.Logger _log;
+        private readonly NLog.Logger _log;
 
         public NLogLog(NLog.Logger log, string name)
         {
@@ -40,32 +40,6 @@ namespace Logrila.Logging.NLogIntegration
             get { return _log.IsFatalEnabled; }
         }
 
-        public void Log(TLogLevel level, object obj)
-        {
-            _log.Log(GetNLogLevel(level), obj);
-        }
-
-        public void Log(TLogLevel level, object obj, Exception exception)
-        {
-            string message = string.Format("{0}{1}{2}", obj == null ? "" : obj.ToString(), Environment.NewLine, ExceptionRender.Parse(exception));
-            _log.Log(GetNLogLevel(level), exception, message);
-        }
-
-        public void Log(TLogLevel level, LogOutputProvider messageProvider)
-        {
-            _log.Log(GetNLogLevel(level), ToGenerator(messageProvider));
-        }
-
-        public void LogFormat(TLogLevel level, IFormatProvider formatProvider, string format, params object[] args)
-        {
-            _log.Log(GetNLogLevel(level), formatProvider, format, args);
-        }
-
-        public void LogFormat(TLogLevel level, string format, params object[] args)
-        {
-            _log.Log(GetNLogLevel(level), format, args);
-        }
-
         public void Debug(object obj)
         {
             _log.Log(NLog.LogLevel.Debug, obj);
@@ -77,9 +51,19 @@ namespace Logrila.Logging.NLogIntegration
             _log.Log(NLog.LogLevel.Debug, exception, message);
         }
 
-        public void Debug(LogOutputProvider messageProvider)
+        public void Debug(LogOutputProvider logOutputProvider)
         {
-            _log.Debug(ToGenerator(messageProvider));
+            _log.Debug(ToGenerator(logOutputProvider));
+        }
+
+        public void DebugFormat(IFormatProvider formatProvider, string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Debug, formatProvider, format, args);
+        }
+
+        public void DebugFormat(string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Debug, format, args);
         }
 
         public void Info(object obj)
@@ -93,9 +77,19 @@ namespace Logrila.Logging.NLogIntegration
             _log.Log(NLog.LogLevel.Info, exception, message);
         }
 
-        public void Info(LogOutputProvider messageProvider)
+        public void Info(LogOutputProvider logOutputProvider)
         {
-            _log.Info(ToGenerator(messageProvider));
+            _log.Info(ToGenerator(logOutputProvider));
+        }
+
+        public void InfoFormat(IFormatProvider formatProvider, string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Info, formatProvider, format, args);
+        }
+
+        public void InfoFormat(string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Info, format, args);
         }
 
         public void Warn(object obj)
@@ -109,9 +103,19 @@ namespace Logrila.Logging.NLogIntegration
             _log.Log(NLog.LogLevel.Warn, exception, message);
         }
 
-        public void Warn(LogOutputProvider messageProvider)
+        public void Warn(LogOutputProvider logOutputProvider)
         {
-            _log.Warn(ToGenerator(messageProvider));
+            _log.Warn(ToGenerator(logOutputProvider));
+        }
+
+        public void WarnFormat(IFormatProvider formatProvider, string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Warn, formatProvider, format, args);
+        }
+
+        public void WarnFormat(string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Warn, format, args);
         }
 
         public void Error(object obj)
@@ -125,9 +129,19 @@ namespace Logrila.Logging.NLogIntegration
             _log.Log(NLog.LogLevel.Error, exception, message);
         }
 
-        public void Error(LogOutputProvider messageProvider)
+        public void Error(LogOutputProvider logOutputProvider)
         {
-            _log.Error(ToGenerator(messageProvider));
+            _log.Error(ToGenerator(logOutputProvider));
+        }
+
+        public void ErrorFormat(IFormatProvider formatProvider, string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Error, formatProvider, format, args);
+        }
+
+        public void ErrorFormat(string format, params object[] args)
+        {
+            _log.Log(NLog.LogLevel.Error, format, args);
         }
 
         public void Fatal(object obj)
@@ -141,49 +155,9 @@ namespace Logrila.Logging.NLogIntegration
             _log.Log(NLog.LogLevel.Fatal, exception, message);
         }
 
-        public void Fatal(LogOutputProvider messageProvider)
+        public void Fatal(LogOutputProvider logOutputProvider)
         {
-            _log.Fatal(ToGenerator(messageProvider));
-        }
-
-        public void DebugFormat(IFormatProvider formatProvider, string format, params object[] args)
-        {
-            _log.Log(NLog.LogLevel.Debug, formatProvider, format, args);
-        }
-
-        public void DebugFormat(string format, params object[] args)
-        {
-            _log.Log(NLog.LogLevel.Debug, format, args);
-        }
-
-        public void InfoFormat(IFormatProvider formatProvider, string format, params object[] args)
-        {
-            _log.Log(NLog.LogLevel.Info, formatProvider, format, args);
-        }
-
-        public void InfoFormat(string format, params object[] args)
-        {
-            _log.Log(NLog.LogLevel.Info, format, args);
-        }
-
-        public void WarnFormat(IFormatProvider formatProvider, string format, params object[] args)
-        {
-            _log.Log(NLog.LogLevel.Warn, formatProvider, format, args);
-        }
-
-        public void WarnFormat(string format, params object[] args)
-        {
-            _log.Log(NLog.LogLevel.Warn, format, args);
-        }
-
-        public void ErrorFormat(IFormatProvider formatProvider, string format, params object[] args)
-        {
-            _log.Log(NLog.LogLevel.Error, formatProvider, format, args);
-        }
-
-        public void ErrorFormat(string format, params object[] args)
-        {
-            _log.Log(NLog.LogLevel.Error, format, args);
+            _log.Fatal(ToGenerator(logOutputProvider));
         }
 
         public void FatalFormat(IFormatProvider formatProvider, string format, params object[] args)
@@ -196,7 +170,34 @@ namespace Logrila.Logging.NLogIntegration
             _log.Log(NLog.LogLevel.Fatal, format, args);
         }
 
-        NLog.LogLevel GetNLogLevel(TLogLevel level)
+        public void Log(TLogLevel level, object obj)
+        {
+            _log.Log(GetNLogLevel(level), obj);
+        }
+
+        public void Log(TLogLevel level, object obj, Exception exception)
+        {
+            string message = string.Format("{0}{1}{2}",
+                obj == null ? "" : obj.ToString(), Environment.NewLine, ExceptionRender.Parse(exception));
+            _log.Log(GetNLogLevel(level), exception, message);
+        }
+
+        public void Log(TLogLevel level, LogOutputProvider logOutputProvider)
+        {
+            _log.Log(GetNLogLevel(level), ToGenerator(logOutputProvider));
+        }
+
+        public void LogFormat(TLogLevel level, IFormatProvider formatProvider, string format, params object[] args)
+        {
+            _log.Log(GetNLogLevel(level), formatProvider, format, args);
+        }
+
+        public void LogFormat(TLogLevel level, string format, params object[] args)
+        {
+            _log.Log(GetNLogLevel(level), format, args);
+        }
+
+        private NLog.LogLevel GetNLogLevel(TLogLevel level)
         {
             if (level == TLogLevel.Fatal)
                 return NLog.LogLevel.Fatal;
@@ -214,7 +215,7 @@ namespace Logrila.Logging.NLogIntegration
             return NLog.LogLevel.Off;
         }
 
-        LogMessageGenerator ToGenerator(LogOutputProvider provider)
+        private LogMessageGenerator ToGenerator(LogOutputProvider provider)
         {
             return () =>
             {

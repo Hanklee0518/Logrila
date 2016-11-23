@@ -40,14 +40,6 @@ namespace Logrila.Logging
             get { return _level >= LogLevel.Fatal; }
         }
 
-        public void LogFormat(LogLevel level, string format, params object[] args)
-        {
-            if (_level < level)
-                return;
-
-            LogInternal(level, string.Format(format, args), null);
-        }
-
         public void Debug(object message)
         {
             if (!IsDebugEnabled)
@@ -62,12 +54,12 @@ namespace Logrila.Logging
             Log(LogLevel.Debug, message, exception);
         }
 
-        public void Debug(LogOutputProvider messageProvider)
+        public void Debug(LogOutputProvider logOutputProvider)
         {
             if (!IsDebugEnabled)
                 return;
 
-            object obj = messageProvider();
+            object obj = logOutputProvider();
 
             LogInternal(LogLevel.Debug, obj, null);
         }
@@ -86,6 +78,20 @@ namespace Logrila.Logging
             LogInternal(LogLevel.Debug, string.Format(formatProvider, format, args), null);
         }
 
+        public void DebugFormat(Exception exception, string format, params object[] args)
+        {
+            if (!IsDebugEnabled)
+                return;
+            LogInternal(LogLevel.Debug, string.Format(CultureInfo.CurrentCulture, format, args), exception);
+        }
+
+        public void DebugFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
+        {
+            if (!IsDebugEnabled)
+                return;
+            LogInternal(LogLevel.Debug, string.Format(formatProvider, format, args), exception);
+        }
+
         public void Info(object message)
         {
             if (!IsInfoEnabled)
@@ -100,12 +106,12 @@ namespace Logrila.Logging
             Log(LogLevel.Info, message, exception);
         }
 
-        public void Info(LogOutputProvider messageProvider)
+        public void Info(LogOutputProvider logOutputProvider)
         {
             if (!IsInfoEnabled)
                 return;
 
-            object obj = messageProvider();
+            object obj = logOutputProvider();
 
             LogInternal(LogLevel.Info, obj, null);
         }
@@ -124,6 +130,20 @@ namespace Logrila.Logging
             LogInternal(LogLevel.Info, string.Format(formatProvider, format, args), null);
         }
 
+        public void InfoFormat(Exception exception, string format, params object[] args)
+        {
+            if (!IsInfoEnabled)
+                return;
+            LogInternal(LogLevel.Info, string.Format(CultureInfo.CurrentCulture, format, args), exception);
+        }
+
+        public void InfoFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
+        {
+            if (!IsInfoEnabled)
+                return;
+            LogInternal(LogLevel.Info, string.Format(formatProvider, format, args), exception);
+        }
+
         public void Warn(object message)
         {
             if (!IsWarnEnabled)
@@ -138,12 +158,12 @@ namespace Logrila.Logging
             Log(LogLevel.Warn, message, exception);
         }
 
-        public void Warn(LogOutputProvider messageProvider)
+        public void Warn(LogOutputProvider logOutputProvider)
         {
             if (!IsWarnEnabled)
                 return;
 
-            object obj = messageProvider();
+            object obj = logOutputProvider();
 
             LogInternal(LogLevel.Warn, obj, null);
         }
@@ -162,6 +182,20 @@ namespace Logrila.Logging
             LogInternal(LogLevel.Warn, string.Format(formatProvider, format, args), null);
         }
 
+        public void WarnFormat(Exception exception, string format, params object[] args)
+        {
+            if (!IsWarnEnabled)
+                return;
+            LogInternal(LogLevel.Warn, string.Format(CultureInfo.CurrentCulture, format, args), exception);
+        }
+
+        public void WarnFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
+        {
+            if (!IsWarnEnabled)
+                return;
+            LogInternal(LogLevel.Warn, string.Format(formatProvider, format, args), exception);
+        }
+
         public void Error(object message)
         {
             if (!IsErrorEnabled)
@@ -176,12 +210,12 @@ namespace Logrila.Logging
             Log(LogLevel.Error, message, exception);
         }
 
-        public void Error(LogOutputProvider messageProvider)
+        public void Error(LogOutputProvider logOutputProvider)
         {
             if (!IsErrorEnabled)
                 return;
 
-            object obj = messageProvider();
+            object obj = logOutputProvider();
 
             LogInternal(LogLevel.Error, obj, null);
         }
@@ -200,6 +234,20 @@ namespace Logrila.Logging
             LogInternal(LogLevel.Error, string.Format(formatProvider, format, args), null);
         }
 
+        public void ErrorFormat(Exception exception, string format, params object[] args)
+        {
+            if (!IsErrorEnabled)
+                return;
+            LogInternal(LogLevel.Error, string.Format(CultureInfo.CurrentCulture, format, args), exception);
+        }
+
+        public void ErrorFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
+        {
+            if (!IsErrorEnabled)
+                return;
+            LogInternal(LogLevel.Error, string.Format(formatProvider, format, args), exception);
+        }
+
         public void Fatal(object message)
         {
             if (!IsFatalEnabled)
@@ -214,12 +262,12 @@ namespace Logrila.Logging
             Log(LogLevel.Fatal, message, exception);
         }
 
-        public void Fatal(LogOutputProvider messageProvider)
+        public void Fatal(LogOutputProvider logOutputProvider)
         {
             if (!IsFatalEnabled)
                 return;
 
-            object obj = messageProvider();
+            object obj = logOutputProvider();
 
             LogInternal(LogLevel.Fatal, obj, null);
         }
@@ -238,96 +286,6 @@ namespace Logrila.Logging
             LogInternal(LogLevel.Fatal, string.Format(formatProvider, format, args), null);
         }
 
-        public void Log(LogLevel level, object obj)
-        {
-            if (_level < level)
-                return;
-
-            LogInternal(level, obj, null);
-        }
-
-        public void Log(LogLevel level, object obj, Exception exception)
-        {
-            if (_level < level)
-                return;
-
-            LogInternal(level, obj, exception);
-        }
-
-        public void Log(LogLevel level, LogOutputProvider messageProvider)
-        {
-            if (_level < level)
-                return;
-
-            object obj = messageProvider();
-
-            LogInternal(level, obj, null);
-        }
-
-        public void LogFormat(LogLevel level, IFormatProvider formatProvider, string format, params object[] args)
-        {
-            if (_level < level)
-                return;
-
-            LogInternal(level, string.Format(formatProvider, format, args), null);
-        }
-
-        public void DebugFormat(Exception exception, string format, params object[] args)
-        {
-            if (!IsDebugEnabled)
-                return;
-            LogInternal(LogLevel.Debug, string.Format(CultureInfo.CurrentCulture, format, args), exception);
-        }
-
-        public void DebugFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
-        {
-            if (!IsDebugEnabled)
-                return;
-            LogInternal(LogLevel.Debug, string.Format(formatProvider, format, args), exception);
-        }
-
-        public void InfoFormat(Exception exception, string format, params object[] args)
-        {
-            if (!IsInfoEnabled)
-                return;
-            LogInternal(LogLevel.Info, string.Format(CultureInfo.CurrentCulture, format, args), exception);
-        }
-
-        public void InfoFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
-        {
-            if (!IsInfoEnabled)
-                return;
-            LogInternal(LogLevel.Info, string.Format(formatProvider, format, args), exception);
-        }
-
-        public void WarnFormat(Exception exception, string format, params object[] args)
-        {
-            if (!IsWarnEnabled)
-                return;
-            LogInternal(LogLevel.Warn, string.Format(CultureInfo.CurrentCulture, format, args), exception);
-        }
-
-        public void WarnFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
-        {
-            if (!IsWarnEnabled)
-                return;
-            LogInternal(LogLevel.Warn, string.Format(formatProvider, format, args), exception);
-        }
-
-        public void ErrorFormat(Exception exception, string format, params object[] args)
-        {
-            if (!IsErrorEnabled)
-                return;
-            LogInternal(LogLevel.Error, string.Format(CultureInfo.CurrentCulture, format, args), exception);
-        }
-
-        public void ErrorFormat(Exception exception, IFormatProvider formatProvider, string format, params object[] args)
-        {
-            if (!IsErrorEnabled)
-                return;
-            LogInternal(LogLevel.Error, string.Format(formatProvider, format, args), exception);
-        }
-
         public void FatalFormat(Exception exception, string format, params object[] args)
         {
             if (!IsFatalEnabled)
@@ -342,11 +300,51 @@ namespace Logrila.Logging
             LogInternal(LogLevel.Fatal, string.Format(formatProvider, format, args), exception);
         }
 
+        private void Log(LogLevel level, object obj)
+        {
+            if (_level < level)
+                return;
+
+            LogInternal(level, obj, null);
+        }
+
+        private void Log(LogLevel level, object obj, Exception exception)
+        {
+            if (_level < level)
+                return;
+
+            LogInternal(level, obj, exception);
+        }
+
+        private void Log(LogLevel level, LogOutputProvider logOutputProvider)
+        {
+            if (_level < level)
+                return;
+
+            object obj = logOutputProvider();
+
+            LogInternal(level, obj, null);
+        }
+
+        private void LogFormat(LogLevel level, IFormatProvider formatProvider, string format, params object[] args)
+        {
+            if (_level < level)
+                return;
+
+            LogInternal(level, string.Format(formatProvider, format, args), null);
+        }
+
+        private void LogFormat(LogLevel level, string format, params object[] args)
+        {
+            if (_level < level)
+                return;
+
+            LogInternal(level, string.Format(format, args), null);
+        }
+
         private void LogInternal(LogLevel level, object obj, Exception exception)
         {
-            string message = obj == null
-                                 ? ""
-                                 : obj.ToString();
+            string message = obj == null ? string.Empty : obj.ToString();
 
             if (exception == null)
                 _source.TraceEvent(level.TraceEventType, 0, message);

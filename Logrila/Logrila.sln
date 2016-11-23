@@ -9,6 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging.NLogIntegra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6920BCC9-BB5A-47E3-89B4-C74241A5E242}"
 	ProjectSection(SolutionItems) = preProject
+		Logrila.Logging.NLogIntegration\Logrila.Logging.NLogIntegration.nuspec = Logrila.Logging.NLogIntegration\Logrila.Logging.NLogIntegration.nuspec
+		Logrila.Logging\Logrila.Logging.nuspec = Logrila.Logging\Logrila.Logging.nuspec
+		..\.nuget\NuGet.md = ..\.nuget\NuGet.md
 		SolutionVersion.cs = SolutionVersion.cs
 	EndProjectSection
 EndProject
