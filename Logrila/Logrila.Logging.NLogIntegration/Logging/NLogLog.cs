@@ -170,29 +170,29 @@ namespace Logrila.Logging.NLogIntegration
             _log.Log(NLog.LogLevel.Fatal, format, args);
         }
 
-        public void Log(TLogLevel level, object obj)
+        private void Log(TLogLevel level, object obj)
         {
             _log.Log(GetNLogLevel(level), obj);
         }
 
-        public void Log(TLogLevel level, object obj, Exception exception)
+        private void Log(TLogLevel level, object obj, Exception exception)
         {
             string message = string.Format("{0}{1}{2}",
                 obj == null ? "" : obj.ToString(), Environment.NewLine, ExceptionRender.Parse(exception));
             _log.Log(GetNLogLevel(level), exception, message);
         }
 
-        public void Log(TLogLevel level, LogOutputProvider logOutputProvider)
+        private void Log(TLogLevel level, LogOutputProvider logOutputProvider)
         {
             _log.Log(GetNLogLevel(level), ToGenerator(logOutputProvider));
         }
 
-        public void LogFormat(TLogLevel level, IFormatProvider formatProvider, string format, params object[] args)
+        private void LogFormat(TLogLevel level, IFormatProvider formatProvider, string format, params object[] args)
         {
             _log.Log(GetNLogLevel(level), formatProvider, format, args);
         }
 
-        public void LogFormat(TLogLevel level, string format, params object[] args)
+        private void LogFormat(TLogLevel level, string format, params object[] args)
         {
             _log.Log(GetNLogLevel(level), format, args);
         }

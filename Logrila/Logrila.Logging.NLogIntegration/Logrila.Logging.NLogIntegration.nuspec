@@ -9,7 +9,7 @@
     <licenseUrl>https://github.com/gaochundong/Logrila/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/gaochundong/Logrila</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Logrila is a simple logging adapter.</description>
+    <description>Logrila logging adapter that integrates with NLog.</description>
     <copyright>Copyright © 2015-2016 Dennis Gao.</copyright>
     <dependencies>
 	  <dependency id="Logrila.Logging" version="1.0.2" />
