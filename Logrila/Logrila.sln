@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging", "Logrila.Logging\Logrila.Logging.csproj", "{824F2739-C89E-43AA-A1A9-91F25B824EBC}"
 EndProject
@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging.SerilogIntegration", "Logrila.Logging.SerilogIntegration\Logrila.Logging.SerilogIntegration.csproj", "{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging.Log4NetIntegration", "Logrila.Logging.Log4NetIntegration\Logrila.Logging.Log4NetIntegration.csproj", "{B7F297E5-9025-4F25-B001-E6D9A0C7AFA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,8 +37,15 @@ Global
 		{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F297E5-9025-4F25-B001-E6D9A0C7AFA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F297E5-9025-4F25-B001-E6D9A0C7AFA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F297E5-9025-4F25-B001-E6D9A0C7AFA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F297E5-9025-4F25-B001-E6D9A0C7AFA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {329CC3DB-AF39-4122-B3BB-D1AEC04D8F16}
 	EndGlobalSection
 EndGlobal
