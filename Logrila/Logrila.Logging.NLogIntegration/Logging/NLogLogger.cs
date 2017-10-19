@@ -12,6 +12,11 @@ namespace Logrila.Logging.NLogIntegration
             _loggerFactory = NLog.LogManager.GetLogger;
         }
 
+        public NLogLogger(Func<string, NLog.Logger> loggerFactory)
+        {
+            _loggerFactory = loggerFactory;
+        }
+
         public NLogLogger(LogFactory logFactory)
         {
             _loggerFactory = logFactory.GetLogger;
@@ -25,6 +30,11 @@ namespace Logrila.Logging.NLogIntegration
         public static void Use()
         {
             Logrila.Logging.Logger.UseLogger(new NLogLogger());
+        }
+
+        public static void Use(Func<string, NLog.Logger> loggerFactory)
+        {
+            Logrila.Logging.Logger.UseLogger(new NLogLogger(loggerFactory));
         }
     }
 }

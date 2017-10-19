@@ -26,6 +26,11 @@ namespace Logrila.Logging.SerilogIntegration
             Logrila.Logging.Logger.UseLogger(new SerilogLogger());
         }
 
+        public static void Use(Func<string, Serilog.ILogger> loggerFactory)
+        {
+            Logrila.Logging.Logger.UseLogger(new SerilogLogger(loggerFactory));
+        }
+
         public static void Use(Serilog.ILogger logger)
         {
             Logrila.Logging.Logger.UseLogger(new SerilogLogger(
