@@ -23,6 +23,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging.Log4NetToNL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging.Log4NetToLogrila", "Logrila.Logging.Log4NetToLogrila\Logrila.Logging.Log4NetToLogrila.csproj", "{01AEB79D-74C0-457E-BE83-5A704F1FA971}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{D4DB4AD5-36C6-4F38-963C-3AD23643C2A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Conversion", "Conversion", "{241F7E14-8322-4806-9754-A8C4D46DBD20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging.SerilogToNLog", "Logrila.Logging.SerilogToNLog\Logrila.Logging.SerilogToNLog.csproj", "{02F4C547-1803-4551-8BA1-E938C0603B8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logrila.Logging.SerilogToLogrila", "Logrila.Logging.SerilogToLogrila\Logrila.Logging.SerilogToLogrila.csproj", "{BE273646-F864-4ADC-A237-0A37DE50ACC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,9 +61,26 @@ Global
 		{01AEB79D-74C0-457E-BE83-5A704F1FA971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01AEB79D-74C0-457E-BE83-5A704F1FA971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01AEB79D-74C0-457E-BE83-5A704F1FA971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02F4C547-1803-4551-8BA1-E938C0603B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F4C547-1803-4551-8BA1-E938C0603B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F4C547-1803-4551-8BA1-E938C0603B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F4C547-1803-4551-8BA1-E938C0603B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE273646-F864-4ADC-A237-0A37DE50ACC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE273646-F864-4ADC-A237-0A37DE50ACC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE273646-F864-4ADC-A237-0A37DE50ACC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE273646-F864-4ADC-A237-0A37DE50ACC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D614C767-8EAB-4B21-ABBC-13BD49D0257A} = {D4DB4AD5-36C6-4F38-963C-3AD23643C2A5}
+		{3D5A0F07-A62C-4B60-8AFB-A038F4C5A85D} = {D4DB4AD5-36C6-4F38-963C-3AD23643C2A5}
+		{B7F297E5-9025-4F25-B001-E6D9A0C7AFA0} = {D4DB4AD5-36C6-4F38-963C-3AD23643C2A5}
+		{2B25EBAA-BBB1-4351-B9B3-B4DD31C5D270} = {241F7E14-8322-4806-9754-A8C4D46DBD20}
+		{01AEB79D-74C0-457E-BE83-5A704F1FA971} = {241F7E14-8322-4806-9754-A8C4D46DBD20}
+		{02F4C547-1803-4551-8BA1-E938C0603B8B} = {241F7E14-8322-4806-9754-A8C4D46DBD20}
+		{BE273646-F864-4ADC-A237-0A37DE50ACC9} = {241F7E14-8322-4806-9754-A8C4D46DBD20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {329CC3DB-AF39-4122-B3BB-D1AEC04D8F16}

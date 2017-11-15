@@ -15,8 +15,8 @@ namespace Logrila.Logging.Log4NetToNLog
 
         protected override void Append(log4net.Core.LoggingEvent loggingEvent)
         {
-            var logger = GetNLogLogger(loggingEvent.LoggerName);
             var logEvent = ConvertToNLog(loggingEvent);
+            var logger = GetNLogLogger(loggingEvent.LoggerName);
             logger.Log(logEvent);
         }
 
@@ -48,7 +48,7 @@ namespace Logrila.Logging.Log4NetToNLog
                 LoggerName = loggingEvent.LoggerName,
                 Message = Convert.ToString(loggingEvent.MessageObject),
                 Level = ConvertToNLogLevel(loggingEvent.Level),
-                TimeStamp = loggingEvent.TimeStamp
+                TimeStamp = loggingEvent.TimeStamp,
             };
         }
 

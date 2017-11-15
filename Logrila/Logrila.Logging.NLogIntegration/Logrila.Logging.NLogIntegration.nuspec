@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Logrila.Logging.NLogIntegration</id>
-    <version>1.0.3.0</version>
+    <version>1.0.6.0</version>
     <title>Logrila.Logging.NLogIntegration</title>
     <authors>Dennis Gao</authors>
     <owners>Dennis Gao</owners>
@@ -10,9 +10,9 @@
     <projectUrl>https://github.com/gaochundong/Logrila</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Logrila logging adapter that integrates with NLog.</description>
-    <copyright>Copyright © 2015-2016 Dennis Gao.</copyright>
+    <copyright>Copyright © 2015-2017 Dennis Gao.</copyright>
     <dependencies>
-	  <dependency id="Logrila.Logging" version="1.0.2" />
+	  <dependency id="Logrila.Logging" version="1.0.3" />
       <dependency id="NLog" version="4.2.3" />
     </dependencies>
   </metadata>
