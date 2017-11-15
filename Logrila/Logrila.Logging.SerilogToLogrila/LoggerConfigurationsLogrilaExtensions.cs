@@ -10,7 +10,7 @@ namespace Logrila.Logging.SerilogToLogrila
     {
         private const string DefaultOutputTemplate = "{Message}";
 
-        public static LoggerConfiguration NLog(
+        public static LoggerConfiguration Logrila(
             this LoggerSinkConfiguration loggerConfiguration,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             string outputTemplate = DefaultOutputTemplate,
