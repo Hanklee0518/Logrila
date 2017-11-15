@@ -10,3 +10,6 @@ nuget pack ..\Logrila\Logrila.Logging.Log4NetIntegration\Logrila.Logging.Log4Net
 
 nuget pack ..\Logrila\Logrila.Logging.Log4NetToNLog\Logrila.Logging.Log4NetToNLog.csproj -IncludeReferencedProjects -Build -Symbols -Prop Configuration=Release -OutputDirectory ".\packages"
 nuget pack ..\Logrila\Logrila.Logging.Log4NetToLogrila\Logrila.Logging.Log4NetToLogrila.csproj -IncludeReferencedProjects -Build -Symbols -Prop Configuration=Release -OutputDirectory ".\packages"
+
+nuget pack ..\Logrila\Logrila.Logging.SerilogToLogrila\Logrila.Logging.SerilogToLogrila.csproj -IncludeReferencedProjects -Build -Symbols -Prop Configuration=Release -OutputDirectory ".\packages"
+nuget pack ..\Logrila\Logrila.Logging.SerilogToNLog\Logrila.Logging.SerilogToNLog.csproj -IncludeReferencedProjects -Build -Symbols -Prop Configuration=Release -OutputDirectory ".\packages"
